@@ -6,6 +6,7 @@ export const productsContext = React.createContext()
 
 const INIT_STATE = {
     products: [],
+    paginatedPages: 1
 }
 
 const reducer = (state = INIT_STATE, action) => {
@@ -13,7 +14,8 @@ const reducer = (state = INIT_STATE, action) => {
         case "GET_PRODUCTS": 
             return {
                 ...state, 
-                products: action.payload
+                products: action.payload.data,
+                paginatedPages: Math.ceil(action.payload.headers["x-total-count"] / 5)
             }
         default: return state
     }
@@ -22,12 +24,15 @@ const reducer = (state = INIT_STATE, action) => {
 const ProductContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE)
 
-    const getProducts = async () => {
-        const { data } = await axios.get(`${API}/products`)
-        // console.log(data)
+    const getProducts = async (history) => {
+        const search = new URLSearchParams(history.location.search)
+        search.set('_limit', 5)
+        history.push(`${history.location.pathname}?${search.toString()}`)
+        const res = await axios.get(`${API}/products${window.location.search}`)
+        console.log(res)
         dispatch({
             type: "GET_PRODUCTS",
-            payload: data
+            payload: res
         })
     }
 
@@ -36,6 +41,7 @@ const ProductContextProvider = ({ children }) => {
         <productsContext.Provider
             value={{
                 products: state.products,
+                paginatedPages: state.paginatedPages,
                 getProducts,
             }}
         >

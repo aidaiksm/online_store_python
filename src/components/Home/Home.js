@@ -7,7 +7,7 @@ import Sidebar from './Sidebar';
 const Home = () => {
     return (
         <div style={{padding: '20px'}}>
-            <Grid spacing-md={3} spacing-sm={3}>
+            <Grid container spacing-md={3} spacing-sm={3}> 
                 <Sidebar />
                 <Content />
             </Grid>
