@@ -30,10 +30,10 @@ const ProductList = () => {
         getProducts(history)
         setPage(pageVal)
     }
-    //todo new in GRID JUSTIFY AND ALIGN AND STYLE
+    //todo new in GRID JUSTIFY AND ALIGN AND STYLE (from 19.05.2021)
     return (
         <> 
-            <Grid container spacing={3} justify="space-evenly" alignItems="space-between" style={{marginTop: '0px',}}>
+            <Grid container spacing={3} justify="space-evenly" alignItems="space-between" style={{marginTop: '0px'}}>
                 {
                     products ? (
                         products.map((item, index) => (

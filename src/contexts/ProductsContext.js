@@ -15,7 +15,7 @@ const reducer = (state = INIT_STATE, action) => {
             return {
                 ...state, 
                 products: action.payload.data,
-                paginatedPages: Math.ceil(action.payload.headers["x-total-count"] / 5)
+                paginatedPages: Math.ceil(action.payload.headers["x-total-count"] / 6)
             }
         default: return state
     }
@@ -26,7 +26,7 @@ const ProductContextProvider = ({ children }) => {
 
     const getProducts = async (history) => {
         const search = new URLSearchParams(history.location.search)
-        search.set('_limit', 5)
+        search.set('_limit', 6)
         history.push(`${history.location.pathname}?${search.toString()}`)
         const res = await axios.get(`${API}/products${window.location.search}`)
         console.log(res)

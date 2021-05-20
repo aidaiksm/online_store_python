@@ -19,7 +19,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
-    margin: 5  //todo add this
+    marginBottom: "30px"  //todo add this  (from 19.05.2021)
   },
   media: {
     backgroundSize: "contain",

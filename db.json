@@ -1,60 +1,69 @@
 {
-    "products": [
-        {
-            "title": "Iphone 12",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-            "type": "iphone",
-            "image": "https://media.wired.com/photos/5e9f56f143e5800008514457/1:1/w_1277,h_1277,c_limit/Gear-Feature-Apple_new-iphone-se-white_04152020.jpg",
-            "price": "123"
-        },
-        {
-            "title": "Iphone X",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-            "type": "iphone",
-            "image": "https://media.wired.com/photos/5e9f56f143e5800008514457/1:1/w_1277,h_1277,c_limit/Gear-Feature-Apple_new-iphone-se-white_04152020.jpg",
-            "price": "111"
-        },
-        {
-            "title": "Iphone 12",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-            "type": "iphone",
-            "image": "https://media.wired.com/photos/5e9f56f143e5800008514457/1:1/w_1277,h_1277,c_limit/Gear-Feature-Apple_new-iphone-se-white_04152020.jpg",
-            "price": "123"
-        },
-        {
-            "title": "Iphone X",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-            "type": "iphone",
-            "image": "https://media.wired.com/photos/5e9f56f143e5800008514457/1:1/w_1277,h_1277,c_limit/Gear-Feature-Apple_new-iphone-se-white_04152020.jpg",
-            "price": "111"
-        },
-        {
-            "title": "Samsung galaxy A60",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-            "type": "samsung",
-            "image": "https://www.gizmochina.com/wp-content/uploads/2019/06/Galaxy-A60-featured.jpg",
-            "price": "111"
-        },
-        {
-            "title": "Samsung galaxy S10",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-            "type": "samsung",
-            "image": "https://www.gizmochina.com/wp-content/uploads/2019/06/Galaxy-A60-featured.jpg",
-            "price": "111"
-        },
-        {
-            "title": "Samsung galaxy A60",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-            "type": "samsung",
-            "image": "https://www.gizmochina.com/wp-content/uploads/2019/06/Galaxy-A60-featured.jpg",
-            "price": "111"
-        },
-        {
-            "title": "Samsung galaxy S10",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-            "type": "samsung",
-            "image": "https://www.gizmochina.com/wp-content/uploads/2019/06/Galaxy-A60-featured.jpg",
-            "price": "111"
-        }
-    ]
+  "products": [
+    {
+      "title": "Iphone 12",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "type": "iphone",
+      "image": "https://media.wired.com/photos/5e9f56f143e5800008514457/1:1/w_1277,h_1277,c_limit/Gear-Feature-Apple_new-iphone-se-white_04152020.jpg",
+      "price": "123"
+    },
+    {
+      "title": "Iphone X",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "type": "iphone",
+      "image": "https://media.wired.com/photos/5e9f56f143e5800008514457/1:1/w_1277,h_1277,c_limit/Gear-Feature-Apple_new-iphone-se-white_04152020.jpg",
+      "price": "111"
+    },
+    {
+      "title": "Iphone 12",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "type": "iphone",
+      "image": "https://media.wired.com/photos/5e9f56f143e5800008514457/1:1/w_1277,h_1277,c_limit/Gear-Feature-Apple_new-iphone-se-white_04152020.jpg",
+      "price": "123"
+    },
+    {
+      "title": "Iphone X",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "type": "iphone",
+      "image": "https://media.wired.com/photos/5e9f56f143e5800008514457/1:1/w_1277,h_1277,c_limit/Gear-Feature-Apple_new-iphone-se-white_04152020.jpg",
+      "price": "111"
+    },
+    {
+      "title": "Samsung galaxy A60",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "type": "samsung",
+      "image": "https://www.gizmochina.com/wp-content/uploads/2019/06/Galaxy-A60-featured.jpg",
+      "price": "111"
+    },
+    {
+      "title": "Samsung galaxy S10",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "type": "samsung",
+      "image": "https://www.gizmochina.com/wp-content/uploads/2019/06/Galaxy-A60-featured.jpg",
+      "price": "111"
+    },
+    {
+      "title": "Samsung galaxy A60",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "type": "samsung",
+      "image": "https://www.gizmochina.com/wp-content/uploads/2019/06/Galaxy-A60-featured.jpg",
+      "price": "111"
+    },
+    {
+      "title": "Samsung galaxy S10",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "type": "samsung",
+      "image": "https://www.gizmochina.com/wp-content/uploads/2019/06/Galaxy-A60-featured.jpg",
+      "price": "111"
+    }
+  ],
+  "users": [
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "email": "test@gmail.com",
+      "password": "123456",
+      "id": 1
+    }
+  ]
 }
