@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 const ProductList = () => {
     const history = useHistory()
-    console.log(history)
+    // console.log(history)
     const { products, getProducts, paginatedPages } = useContext(productsContext);
     const [page, setPage] = useState(getPage())
 
@@ -25,7 +25,7 @@ const ProductList = () => {
         const search = new URLSearchParams(history.location.search) 
         search.set('_page', pageVal)
         // console.log(search.toString())
-        console.log(history)
+        // console.log(history)
         history.push(`${history.location.pathname}?${search.toString()}`)
         getProducts(history)
         setPage(pageVal)

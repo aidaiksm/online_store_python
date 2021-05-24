@@ -13,8 +13,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { productsContext } from '../../contexts/ProductsContext';
 
 const useStyles = makeStyles((theme) => ({
@@ -83,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar() {
   const history = useHistory();
-  const { getProducts } = useContext(productsContext)
+  const { getProducts, cartLength } = useContext(productsContext)
   const [searchVal, setSearchVal] = useState(getSearchVal())
 
   function getSearchVal () {
@@ -192,9 +193,11 @@ export default function Navbar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
-          </Typography>
+          <Link to="/" style={{color: 'white', textDecoration: 'none'}}>
+            <Typography className={classes.title} variant="h6" noWrap>
+              Material-UI
+            </Typography>
+          </Link>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -217,11 +220,13 @@ export default function Navbar() {
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            <Link to="/cart" style={{color: 'white'}}>
+              <IconButton aria-label="show 17 new notifications" color="inherit">
+                <Badge badgeContent={cartLength} color="secondary">
+                  <ShoppingCartIcon />
+                </Badge>
+              </IconButton>
+            </Link>
             <IconButton
               edge="end"
               aria-label="account of current user"

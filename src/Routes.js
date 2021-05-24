@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
+import Cart from './components/cart/Cart';
 import Navbar from './components/Header/Navbar';
 import Home from './components/Home/Home';
 import AuthContextProvider from './contexts/AuthContext';
@@ -17,6 +18,7 @@ const Routes = () => {
                         <Route exact path="/" component={Home} />
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/login" component={Login} />
+                        <Route exact path="/cart" component={Cart} />
                     </Switch>
                 </BrowserRouter>
             </ProductContextProvider>
