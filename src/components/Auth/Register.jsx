@@ -88,7 +88,7 @@ export default function Register() {
                 email: '',
                 password: ''
               })
-            //   history.push('/login')
+              history.push('/login')
           } else if(answer.status >=400 && answer.status < 500){
               alert('Bad request!')
           } else if(answer.status >=500 ){

@@ -119,6 +119,21 @@ const ProductContextProvider = ({ children }) => {
         return newCart.length > 0 ? true : false
     }
 
+    const addProduct = async (newProduct) => {
+        try{
+            let res = await axios.post(`${API}/products`, newProduct)
+            return res
+        }catch(err){
+            console.log(err)
+            return err
+        }
+    }
+
+    const deleteProduct = async (id, history) => {
+        await axios.delete(`${API}/products/${id}`)
+        getProducts(history)
+    }
+
 
     return (
         <productsContext.Provider
@@ -131,7 +146,9 @@ const ProductContextProvider = ({ children }) => {
                 addProductInCart,
                 getCart,
                 changeProductCount,
-                checkProductIncart
+                checkProductIncart,
+                addProduct,
+                deleteProduct,
             }}
         >
             {children}

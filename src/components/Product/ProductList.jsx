@@ -37,7 +37,7 @@ const ProductList = () => {
                 {
                     products ? (
                         products.map((item, index) => (
-                            <ProductCard item={item} key={index} />
+                            <ProductCard item={item} key={index} history={history} />
                         ))
                     ) : ( <h1>Loading...</h1> )
                 }

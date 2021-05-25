@@ -63,6 +63,22 @@
       "image": "https://www.gizmochina.com/wp-content/uploads/2019/06/Galaxy-A60-featured.jpg",
       "price": "111",
       "id": 8
+    },
+    {
+      "title": "test",
+      "image": "https://images.unsplash.com/photo-1612151855475-877969f4a6cc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGQlMjBpbWFnZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
+      "price": "1111",
+      "type": "test",
+      "description": "sfsdfsdf",
+      "id": 9
+    },
+    {
+      "title": "sdfkj",
+      "image": "https://content.onliner.by/news/1100x5616/472baa6904f365c4bae96d6b77c13010.jpeg",
+      "price": "sdfs",
+      "type": "sdlfkjs",
+      "description": "sdf",
+      "id": 10
     }
   ],
   "users": [
@@ -72,6 +88,13 @@
       "email": "test@gmail.com",
       "password": "123456",
       "id": 1
+    },
+    {
+      "firstName": "admin",
+      "lastName": "admin",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "id": 2
     }
   ]
 }

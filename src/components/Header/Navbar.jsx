@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -17,6 +17,9 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { Link, useHistory } from 'react-router-dom';
 import { productsContext } from '../../contexts/ProductsContext';
+import { authContext } from '../../contexts/AuthContext';
+import { Box } from '@material-ui/core';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -84,6 +87,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar() {
   const history = useHistory();
+  const { currentUser, currUser} = useContext(authContext)
   const { getProducts, cartLength } = useContext(productsContext)
   const [searchVal, setSearchVal] = useState(getSearchVal())
 
@@ -98,6 +102,17 @@ export default function Navbar() {
     history.push(`${history.location.pathname}?${search.toString()}`)
     setSearchVal(e.target.value)
     getProducts(history)
+  }
+
+  useEffect(() => {
+    currUser()
+  }, [])
+
+  const handleLogOut = () => {
+    localStorage.clear()
+    currUser()
+    setAnchorEl(null)
+    handleMobileMenuClose()
   }
 
   const classes = useStyles();
@@ -135,8 +150,20 @@ export default function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      {
+        currentUser ? (
+          <MenuItem onClick={handleLogOut}>Log Out</MenuItem>
+        ) : (
+          <>
+            <Link to="/login">
+              <MenuItem onClick={handleMenuClose}>Sign In</MenuItem>
+            </Link>
+            <Link to="/register">
+              <MenuItem onClick={handleMenuClose}>Sign Up</MenuItem>
+            </Link>
+          </>
+        )
+      }
     </Menu>
   );
 
@@ -214,19 +241,31 @@ export default function Navbar() {
             />
           </div>
           <div className={classes.grow} />
+              <Box mr={3} fontSize="24px" fontFamily="Monospace">
+                {currentUser}
+              </Box>
+
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <Link to="/cart" style={{color: 'white'}}>
-              <IconButton aria-label="show 17 new notifications" color="inherit">
-                <Badge badgeContent={cartLength} color="secondary">
-                  <ShoppingCartIcon />
-                </Badge>
-              </IconButton>
-            </Link>
+            {
+              currentUser === 'admin@gmail.com' ? (
+                <Link to="/add" style={{color: 'white'}}>
+                    <IconButton aria-label="show 4 new mails" color="inherit">
+                        <AddCircleOutlineIcon />
+                    </IconButton>
+                </Link>
+              ) : null
+            }
+            {
+              currentUser !== 'admin@gmail.com' && currentUser ? (
+                <Link to="/cart" style={{color: 'white'}}>
+                    <IconButton aria-label="show 17 new notifications" color="inherit">
+                      <Badge badgeContent={cartLength} color="secondary">
+                        <ShoppingCartIcon />
+                      </Badge>
+                    </IconButton>
+                </Link>
+              ) : null
+            }
             <IconButton
               edge="end"
               aria-label="account of current user"

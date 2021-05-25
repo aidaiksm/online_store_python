@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -17,10 +17,15 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { productsContext } from '../../contexts/ProductsContext';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+import { authContext } from '../../contexts/AuthContext';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    minWidth: 345,
     marginBottom: "30px"  //todo add this  (from 19.05.2021)
   },
   media: {
@@ -30,10 +35,52 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ProductCard({item}) {
+export default function ProductCard({item, history}) {
   const classes = useStyles();
 
-  const { addProductInCart, checkProductIncart } = useContext(productsContext)
+  const { addProductInCart, checkProductIncart, deleteProduct } = useContext(productsContext)
+  const { currentUser, currUser} = useContext(authContext)
+
+  useEffect(() => {
+    currUser()
+  }, [])
+
+  let icons = null
+  if(currentUser === 'admin@gmail.com'){
+    icons = 
+      <>
+        <CardActions disableSpacing>
+          <Link to={`/edit/${item.id}/`} style={{color: 'black', textDecoration: 'none'}}>
+            <IconButton aria-label="add to favorites">
+              <EditIcon />
+            </IconButton>
+          </Link>
+          <IconButton 
+            aria-label="share" 
+            onClick={() => deleteProduct(item.id, history)}
+          >
+            <DeleteIcon />
+          </IconButton>
+        </CardActions>
+      </>
+  }else if(currentUser){
+    icons = <>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton 
+          aria-label="share" 
+          onClick={() => addProductInCart(item)}
+          color={checkProductIncart(item.id) ? "secondary" : "inherit"}
+        >
+          <ShoppingCartIcon />
+        </IconButton>
+      </CardActions>
+    </>
+  }else {
+    icons = null
+  }
 
   return (
     <Card className={classes.root}>
@@ -56,18 +103,7 @@ export default function ProductCard({item}) {
              {item.price}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton 
-          aria-label="share" 
-          onClick={() => addProductInCart(item)}
-          color={checkProductIncart(item.id) ? "secondary" : "inherit"}
-        >
-          <ShoppingCartIcon />
-        </IconButton>
-      </CardActions>
+      {icons}
     </Card>
   );
 }

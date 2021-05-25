@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Login() {
   const classes = useStyles();
   const history = useHistory();
-    const { getUsers, users} = useContext(authContext)
+    const { getUsers, users, currUser } = useContext(authContext)
     const [logUser, setLogUser] = useState({email: '', password: ''})
 
     useEffect(() => {
@@ -77,14 +77,15 @@ export default function Login() {
     }
 
     const handleCompare = (e) => {
-        // e.preventDefault()
+        e.preventDefault()
 
         for (let index in users){
             let user = users[index]
             if(user.email === logUser.email && user.password === logUser.password){
                 localStorage.setItem('currentUser', logUser.email)
+                currUser()
                 alert('All is ok!')
-                // history.push('/')
+                history.push('/')
                 return
             }
         }

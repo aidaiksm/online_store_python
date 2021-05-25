@@ -16,6 +16,8 @@ const reducer = (state = INIT_STATE, action) => {
                 ...state, 
                 users: action.payload
             }
+        case  "GET_ONE_USER":
+            return { ...state, currentUser: action.payload}
         default: return state
     }
 }
@@ -42,9 +44,19 @@ const AuthContextProvider = ({children}) => {
         }
     }
 
+    const currUser = () => {
+        let person = localStorage.getItem('currentUser')
+        dispatch({
+            type: "GET_ONE_USER",
+            payload: person
+        })
+    }
+
     return (
         <authContext.Provider value={{
             users: state.users,
+            currentUser: state.currentUser,
+            currUser,
             getUsers,
             addUser,
         }}>
